@@ -33,6 +33,7 @@
             function showCommentBox() {
                 var div = document.getElementById('comment');
                 div.className = 'visible';
+                div.focus();
             }
         </script>
     </head>
@@ -59,7 +60,7 @@
                 <p><br><textarea name="comment" rows="3" cols="30"></textarea><br><br>
                     <input type="submit" name="sub" value="Send"></p>
             </div>
-            <input type="hidden" name="createdby" value="Vijay"/> <!--**********   Update this field     *************-->
+            <input type="hidden" name="createdby" value="<%=HashtagParser.generateUser()%>"/> <!--**********   Update this field     *************-->
         </form>
     </body>
 </html>
