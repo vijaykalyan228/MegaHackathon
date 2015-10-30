@@ -46,9 +46,9 @@
 
             ResultSet rset = st.executeQuery("select * from comments where page='page1' order by createdat");
             while (rset.next()) {
-                out.println("<table>");
+                out.println("<div id="+rset.getInt("id")+"<table>");
                 out.println("<tr><b>" + rset.getString("createdby") + "</b> at <i>" + rset.getTimestamp("createdat") + "</i>:<br/></tr>");
-                out.println("<tr>"+HashtagParser.parse(rset.getString("comment")+"</tr>"));
+                out.println("<tr>&nbsp;&nbsp;&nbsp;&nbsp;"+HashtagParser.parse(rset.getString("comment"))+"</tr>");
                 out.println("</table>");
             }
         %>
@@ -59,7 +59,7 @@
                 <p><br><textarea name="comment" rows="3" cols="30"></textarea><br><br>
                     <input type="submit" name="sub" value="Send"></p>
             </div>
-            <input type="hidden" name="createdby" value="Vijay"/>
+            <input type="hidden" name="createdby" value="Vijay"/> <!--**********   Update this field     *************-->
         </form>
     </body>
 </html>
